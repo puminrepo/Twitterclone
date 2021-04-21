@@ -20,16 +20,17 @@
     </nav>
     <h1>MAKE A TWEET</h1>
     <% if (user_exists) { %>  
-             <div class="dp">
+        <div class="col-sm-offset-2 col-sm-10" >
                  <img src="<%-user_exists.dpUrl%>" style="height: 20%; width:20% ;">
              </div>
              
          <% } %>
       <!-- Button trigger modal -->
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
        Upload Profile Picture
-    </button>
-
+      </button>
+     </div>
      <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -65,13 +66,15 @@
 </div><!-- /.modal -->
 
         <form class="form-horizontal" role="form" method="POST" action ="/createTweet">
-            <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10" class="form-group">
                 <label for="name">Tweeter box:</label>
                 <textarea class="form-control" rows="3" name="content" fixed></textarea>
                 </div>
+                <div class="col-sm-offset-2 col-sm-10" >
                 <button type="submit" class="btn btn-primary">
                     Send tweet
                 </button>
+            </div>
             </form>
         
             

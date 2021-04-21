@@ -50,13 +50,15 @@
             <div class="dp">
                 <img src="<%-t.dataValues.User.dataValues.dpUrl%>" style="height:15%; width: 15%;">
             </div>
-            <div class="tweet"><b><%= t.dataValues.User.dataValues.username %>  says: </b> 
+            <div class="col-sm-offset-2 col-sm-10" >
+             <b><%= t.dataValues.User.dataValues.username %>  says: </b> 
                   <%= t.dataValues.tweet %>
             </div>
+            <div class="col-sm-offset-2 col-sm-10">
             <input type="hidden" value="<%-t.dataValues.id%>" name="tweetdelete">
             <button class="btn btn-primary" id="<%-t.dataValues.id%>" type="submit">delete
              </button>
-            
+            </div>
         </div>
     </form>
         <% } }%>
