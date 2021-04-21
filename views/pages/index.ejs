@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>TweeterClone</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="main.css" rel="stylesheet">
+
+</head>
+      <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="/">TweeterClone</a>
+            </div>
+            <div>
+                <a href="/createUser">Sign up</a> | 
+                <a href="/createTweet">Tweet something</a>
+                
+            </div>
+        </nav>
+        <h1>LOG-IN HERE</h1>
+
+        <form class="form-horizontal" role="form" method="POST" action ="/login">
+            <div class="form-group">
+            <label for="username" class="col-sm-2 control-label">username</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="username" name = "username" required        
+             placeholder="username">
+            </div> 
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">password</label>
+                <div class="col-sm-10">
+                <input type="password" class="form-control" id = "password"  name = "password" required   
+                 placeholder="password">
+                </div>
+                </div>
+                <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Sign in</button>
+            </div>
+            </div>
+            </form>
+
+            <h2>tweets go here</h2>
+            <% if (locals.tweets) { %>                
+       <% for (let t of locals.tweets) { %>
+        <form method="GET" action="delTweet">
+        <div class="content" id="<%-t.dataValues.id%>" >
+            <div class="dp">
+                <img src="<%-t.dataValues.User.dataValues.dpUrl%>" style="height:15%; width: 15%;">
+            </div>
+            <div class="tweet"><b><%= t.dataValues.User.dataValues.username %>  says: </b> 
+                  <%= t.dataValues.tweet %>
+            </div>
+            <input type="hidden" value="<%-t.dataValues.id%>" name="tweetdelete">
+            <button class="btn btn-primary" id="<%-t.dataValues.id%>" type="submit">delete
+             </button>
+            
+        </div>
+    </form>
+        <% } }%>
+
+<script src="/jquery-3.4.1.js"></script>
+
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

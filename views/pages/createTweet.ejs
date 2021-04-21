@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>TweeterClone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+       <div class="navbar-header">
+           <a class="navbar-brand" href="/">TweeterClone</a>
+       </div>
+        <div>
+           <a href="/logout">Logout</a> | 
+           <a href="/">View tweets</a> 
+        </div>
+    </nav>
+    <h1>MAKE A TWEET</h1>
+    <% if (user_exists) { %>  
+             <div class="dp">
+                 <img src="<%-user_exists.dpUrl%>" style="height: 20%; width:20% ;">
+             </div>
+             
+         <% } %>
+      <!-- Button trigger modal -->
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+       Upload Profile Picture
+    </button>
+
+     <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+             <h4 class="modal-title" id="myModalLabel">
+                Upload a profile picture
+            </h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+            </button>
+          </div>
+          <form class="form-inline" role="form" method="POST" action="/profile" enctype="multipart/form-data">
+              <div class="modal-body">
+                  <div class="form-group">
+                      <label class="sr-only" for="file">
+                          File
+                        </label>
+                        <input type="file" id="file" name="propic">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"data-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Change
+                    </button>
+                </div>
+            </form>
+        </div>
+       </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+
+        <form class="form-horizontal" role="form" method="POST" action ="/createTweet">
+            <div class="form-group">
+                <label for="name">Tweeter box:</label>
+                <textarea class="form-control" rows="3" name="content" fixed></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Send tweet
+                </button>
+            </form>
+        
+            
+<script src="/jquery-3.4.1.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
